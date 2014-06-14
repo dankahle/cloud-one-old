@@ -1,0 +1,29 @@
+/// <reference path="../bower_components/angular/angular.js" />
+"use strict";
+
+var app = angular.module("app", []);
+
+app.controller("ctrl", function ($scope, $http) {
+
+/*
+	$scope.users = [
+		{ name: "dank", age: 50 },
+		{ name: "carl", age: 60 }
+	];
+*/
+
+	$scope.users = [];
+
+	$http.get("http://localhost:3404/api/User").success(function (data) {
+		$scope.users = JSON.parse(data);
+		
+		console.log("data", data)
+		console.log("data", $scope.users[0]);
+	});
+
+});
+
+
+
+
+
