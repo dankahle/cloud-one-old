@@ -12,13 +12,9 @@ app.controller("ctrl", function ($scope, $http) {
 	];
 */
 
-	$scope.users = [];
 
 	$http.get("http://localhost:3404/api/User").success(function (data) {
-		$scope.users = JSON.parse(data);
-		
-		console.log("data", data)
-		console.log("data", $scope.users[0]);
+		$scope.users = data;
 	});
 
 });
